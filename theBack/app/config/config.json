@@ -1,0 +1,38 @@
+{
+
+    "development": {
+
+        "username": "root",
+
+        "password": "Jeremy_1",
+
+        "database": "theFirst",
+
+        "host": "127.0.0.1",
+
+        "dialect": "mysql"
+
+    },
+
+    "test": {
+
+        "username": "root",
+
+        "password": "Jeremy_1",
+
+        "database": "theFirst",
+
+        "host": "127.0.0.1",
+
+        "dialect": "mysql"
+
+    },
+
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "theFirst",
+        "host": "127.0.0.1",
+        "dialect": "mysql"
+    }
+}
