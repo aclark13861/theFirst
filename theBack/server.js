@@ -29,6 +29,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use('/testAPI', testAPIRouter);
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 app.use(session({
@@ -44,7 +46,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/users', usersRouter);
-app.use('/testAPI', testAPIRouter);
 
 
 // catch 404 and forward to error handler

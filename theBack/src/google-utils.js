@@ -7,6 +7,12 @@ const googleConfig = {
   redirect: process.env.GOOGLE_CALLBACK // this must match your google api settings
 };
 
+const defaultScope = [
+  'https://www.googleapis.com/auth/plus.me',
+  'https://www.googleapis.com/auth/userinfo.email',
+];
+
+
 /**
  * Create the google auth object which gives us access to talk to google's apis.
  */
@@ -17,12 +23,6 @@ function createConnection() {
     googleConfig.redirect
   );
 }
-
-const defaultScope = [
-    'https://www.googleapis.com/auth/plus.me',
-    'https://www.googleapis.com/auth/userinfo.email',
-  ];
-  
   /**
    * Get a url which will open the google sign-in page and request access to the scope provided (such as calendar events).
    */
@@ -36,12 +36,18 @@ const defaultScope = [
   /**
    * Create the google url to be sent to the client.
    */
+
+  function getGooglePlusApi(auth) {
+    return google.plus({ version: 'v1', auth });
+  }
+  
   function urlGoogle() {
     const auth = createConnection(); // this is from previous step
     const url = getConnectionUrl(auth);
     return url;
   }
 
+  
   let goog = urlGoogle();
 
   module.exports = goog;
